@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "PIMMS" && exit 0

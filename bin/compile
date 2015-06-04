@@ -1,0 +1,17 @@
+#!/bin/sh
+
+build_dir=$1
+cache_dir=$2
+env_dir=$3
+
+if [ -d "$env_dir" ]; then
+  for e in $(ls $env_dir); do
+    export "$e=$(cat $env_dir/$e)"
+  done
+fi
+
+echo "-----> Compiling PIMMS"
+
+cd $build_dir && bundle exec bin/pimms buildpack compile
+
+exit 0
